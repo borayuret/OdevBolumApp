@@ -30,7 +30,7 @@ public class BolumController {
         }
         else
         {
-            throw new BolumNotFoundException(id + "nolu Bölüm bulunamadı!");
+            throw new BolumNotFoundException(id + " nolu Bölüm bulunamadı!");
         }
     }
 
@@ -38,6 +38,17 @@ public class BolumController {
     public List<Bolum> getTumBolumler()
     {
         return bolumRepository.findAll();
+    }
+
+    @GetMapping("/bolumad/{id}")
+    public String getBolumAd(@PathVariable("id") long id)
+    {
+
+        Bolum bolum = getBolum(id);
+        return bolum.getAd();
+
+        //return getBolum(id).getAd();
+
     }
 
 }
