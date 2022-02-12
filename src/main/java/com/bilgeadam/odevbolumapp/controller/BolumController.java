@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 import java.util.Optional;
@@ -40,15 +41,8 @@ public class BolumController {
         return bolumRepository.findAll();
     }
 
-    @GetMapping("/bolumad/{id}")
-    public String getBolumAd(@PathVariable("id") long id)
-    {
 
-        Bolum bolum = getBolum(id);
-        return bolum.getAd();
 
-        //return getBolum(id).getAd();
 
-    }
 
 }
